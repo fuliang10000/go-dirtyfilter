@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/github/license/fuliang10000/go-dirtyfilter)](https://github.com/fuliang10000/go-dirtyfilter/blob/main/LICENSE)
 
 ## 介绍
-> 使用go编写的基于Redis实现的分布式锁，lockClient是单例模式，避免资源浪费，锁的操作是线程安全的
+> 使用go语言编写的基于DFA算法实现的敏感词过滤器，为方便配置，起到同时过滤大小写英文字母的效果，过滤单词请统一使用小写
 
 ## 快速开始
 
@@ -31,9 +31,10 @@ import (
 )
 
 func main() {
-	filterWords := []string{"朋友", "my friend"}
-	text := "你好，我的朋友。Hi my friend, how are you."
-	filteredWords, replacedText := dirtyFilter.NewDFAMather().Builder(filterWords).Match(text)
-	fmt.Println(filteredWords, replacedText) // [朋友 my friend] 你好，我的**。Hi *********, how are you.
+	filterWords := []string{"朋友", "my friend"} // 英文统一使用小写字母
+	text := "你好，我的朋友。Hi My friend, how are you."
+	replaceChar := '*'
+	filteredWords, replacedText := dirtyFilter.NewDFAMather().Builder(filterWords).Match(text, replaceChar)
+	fmt.Println(filteredWords, replacedText) // [朋友 My friend] 你好，我的**。Hi *********, how are you.
 }
 ```

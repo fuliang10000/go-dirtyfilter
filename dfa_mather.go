@@ -63,7 +63,7 @@ func (n *Node) addChild(c rune) *Node {
 
 // Match方法用于在文本中查找并替换敏感词。
 // 它返回找到的敏感词列表和替换后的文本。
-func (d *DFAMatcher) Match(text string) (sensitiveWords []string, replaceText string) {
+func (d *DFAMatcher) Match(text string, replaceChar rune) (sensitiveWords []string, replaceText string) {
 	if d.root == nil { // 如果DFA是空的，直接返回原始文本。
 		return nil, text
 	}
@@ -83,14 +83,14 @@ func (d *DFAMatcher) Match(text string) (sensitiveWords []string, replaceText st
 			if temp.End {
 				// 如果找到一个敏感词，将其添加到结果列表中，并在副本中替换为指定字符
 				sensitiveWords = append(sensitiveWords, string(textChars[i:j]))
-				d.replaceRune(textCharsCopy, '*', i, j) //替换敏感词
+				d.replaceRune(textCharsCopy, replaceChar, i, j) //替换敏感词
 			}
 			temp = temp.findChild(textChars[j])
 		}
 		// 处理文本末尾的情况，如果末尾是一个完整的敏感词，添加到结果列表中，并在副本中替换为指定字符
 		if j == length && temp != nil && temp.End {
 			sensitiveWords = append(sensitiveWords, string(textChars[i:length]))
-			d.replaceRune(textCharsCopy, '*', i, length)
+			d.replaceRune(textCharsCopy, replaceChar, i, length)
 		}
 	}
 	return sensitiveWords, string(textCharsCopy) // 返回匹配到的敏感词列表和替换后的文本
