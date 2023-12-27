@@ -36,6 +36,6 @@ func main() {
 	text := "毛主席万岁！！"
 	replaceChar := '*'
 	filteredWords, replacedText := dirtyFilter.NewDFAMather().Builder(filterWords).Match(text, replaceChar)
-	fmt.Println(filteredWords, replacedText) // [毛主席] ***万岁！！
+	fmt.Println(filteredWords, replacedText) // [毛主席 主席] ***万岁！！
 }
 ```
