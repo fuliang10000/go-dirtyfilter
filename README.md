@@ -7,7 +7,8 @@
 [![License](https://img.shields.io/github/license/fuliang10000/go-dirtyfilter)](https://github.com/fuliang10000/go-dirtyfilter/blob/main/LICENSE)
 
 ## 介绍
-> 使用go语言编写的基于DFA算法实现的敏感词过滤器，为方便配置，起到同时过滤大小写英文字母的效果，过滤单词请统一使用小写
+> 使用go语言编写的基于DFA算法实现的敏感词过滤器，为方便配置，起到同时过滤大小写英文字母的效果，过滤单词请统一使用小写，
+> 附带脏词基础库：[dirty.2017.txt](dirty.2017.txt)
 
 ## 快速开始
 
