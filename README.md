@@ -5,6 +5,9 @@
 [![Report](https://goreportcard.com/badge/github.com/fuliang10000/go-dirtyfilter)](https://goreportcard.com/report/github.com/fuliang10000/go-dirtyfilter)
 [![Doc](https://img.shields.io/badge/go.dev-reference-brightgreen?logo=go&logoColor=white&style=flat)](https://pkg.go.dev/github.com/fuliang10000/go-dirtyfilter)
 [![License](https://img.shields.io/github/license/fuliang10000/go-dirtyfilter)](https://github.com/fuliang10000/go-dirtyfilter/blob/main/LICENSE)
+[![Issues](https://img.shields.io/github/issues/fuliang10000/go-dirtyfilter?style=flat-square)](https://github.com/fuliang10000/go-dirtyfilter/issues)
+[![Forks](https://img.shields.io/github/forks/fuliang10000/go-dirtyfilter?style=flat-square)](https://github.com/fuliang10000/go-dirtyfilter/network)
+[![Stars](https://img.shields.io/github/stars/fuliang10000/go-dirtyfilter?style=flat-square)]()
 
 ## 介绍
 > 使用go语言编写的基于DFA算法实现的敏感词过滤器，为降低trie树的体积，起到同时过滤大小写的效果，过滤单词请统一使用小写，
