@@ -1,4 +1,4 @@
-package DFAMather
+package dirtyfilter
 
 import (
 	"bufio"
