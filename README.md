@@ -32,10 +32,10 @@ import (
 )
 
 func main() {
-	filterWords := []string{"朋友", "my friend"} // 英文统一使用小写字母
-	text := "你好，我的朋友。Hi My friend, how are you."
+	filterWords := dirtyFilter.LoadFileWords("./dirty.2017.txt")
+	text := "毛主席万岁！！"
 	replaceChar := '*'
 	filteredWords, replacedText := dirtyFilter.NewDFAMather().Builder(filterWords).Match(text, replaceChar)
-	fmt.Println(filteredWords, replacedText) // [朋友 My friend] 你好，我的**。Hi *********, how are you.
+	fmt.Println(filteredWords, replacedText) // [毛主席] ***万岁！！
 }
 ```
